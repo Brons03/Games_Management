@@ -31,7 +31,8 @@
               </el-button>
               
               <el-dropdown-menu slot="dropdown">
-                <el-dropdown-item >个人主页  </el-dropdown-item>
+                
+                <el-link href="/mine"><el-dropdown-item >个人主页 </el-dropdown-item></el-link>
                 <el-dropdown-item @click.native="logout">退出</el-dropdown-item>
                
               </el-dropdown-menu>

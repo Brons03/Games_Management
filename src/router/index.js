@@ -51,6 +51,11 @@ export default new Router({
       ]
     },
     {
+      path: '/mine',
+      name: 'Mine',
+      component: ()=>import('../components/mine/Mine')
+    },
+    {
       path: '/login',
       name: 'Login',
       component: () => import('../components/Login')
@@ -131,6 +136,11 @@ export const createRouter = routes => new Router({
           component: () => import('../components/library/LibraryIndex')
         }
       ]
+    },
+    {
+      path: '/mine',
+      name: 'Mine',
+      component: ()=>import('../components/mine/Mine')
     },
     {
       path: '/login',
