@@ -12,13 +12,13 @@
       <div class="articles-area">
       <el-card style="text-align: left">
         <div v-for="article in articles" :key="article.id" class="gameitem">
-          <div style="width:75%;" class="">
+          <div style="width:70%;" class="">
             <router-link class="article-link" :to="{path:'jotter/article',query:{id: article.id}}"><span style="font-size: 20px"><strong>{{article.articleTitle}}</strong></span></router-link>
             <el-divider content-position="left">{{article.articleDate}}</el-divider>
             <router-link class="article-link" :to="{path:'jotter/article',query:{id: article.id}}"><p>{{article.articleAbstract}}</p></router-link>
           </div>
           <el-image
-            style="margin:18px 0 0 30px;width:25%"
+            style="margin:18px 0 0 30px;width:30%"
             :src="article.articleCover"
             fit="cover"></el-image>
         </div>

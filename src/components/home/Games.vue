@@ -6,9 +6,9 @@
       <el-card style="text-align: left">
         <div v-for="article in articles" :key="article.id" class="gameitem">
           <div style="width:85%;" class="">
-            <router-link class="article-link" :to="{path:'jotter/article',query:{id: article.id}}"><span style="font-size: 20px"><strong>{{article.articleTitle}}</strong></span></router-link>
+            <router-link class="article-link" :to="{path:'jotter/article',query:{id: article.id,type: 'game'}}"><span style="font-size: 20px"><strong>{{article.articleTitle}}</strong></span></router-link>
             <el-divider content-position="left">{{article.articleDate}}</el-divider>
-            <router-link class="article-link" :to="{path:'jotter/article',query:{id: article.id}}"><p>{{article.articleAbstract}}</p></router-link>
+            <router-link class="article-link" :to="{path:'jotter/article',query:{id: article.id,type: 'game'}}"><p>{{article.articleAbstract}}</p></router-link>
           </div>
           <el-image
             style="margin:18px 0 0 30px;width:100px"
@@ -49,7 +49,7 @@
     methods: {
       loadBooks () {
         var _this = this
-        this.$axios.get('/api/books').then(resp => {
+        this.$axios.get('/api/games').then(resp => {
           if (resp && resp.data.code === 200) {
             _this.books = resp.data.result
           }
@@ -60,7 +60,7 @@
       },
       loadArticles () {
         var _this = this
-        this.$axios.get('/api/article/' + this.pageSize + '/1').then(resp => {
+        this.$axios.get('/api/game/' + this.pageSize + '/1').then(resp => {
           if (resp && resp.data.code === 200) {
             console.log(resp.data.result)
             _this.articles = resp.data.result.content
@@ -70,7 +70,7 @@
       },
       handleCurrentChangeArticle (page) {
         var _this = this
-        this.$axios.get('/api/article/' + this.pageSize + '/' + page).then(resp => {
+        this.$axios.get('/api/game/' + this.pageSize + '/' + page).then(resp => {
           if (resp && resp.data.code === 200) {
             _this.articles = resp.data.result.content
             _this.total = resp.data.result.totalElements

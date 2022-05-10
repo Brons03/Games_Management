@@ -26,7 +26,11 @@
     methods: {
       loadArticle () {
         var _this = this
-        this.$axios.get('/api/article/' + this.$route.query.id).then(resp => {
+        let articleurl = '/api/article/'
+        if(this.$route.query.type=='game'){
+          articleurl = '/api/game/article/'
+        }
+        this.$axios.get(articleurl + this.$route.query.id).then(resp => {
           if (resp && resp.data.code === 200) {
             _this.article = resp.data.result
           }
